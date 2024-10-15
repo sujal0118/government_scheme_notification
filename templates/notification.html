@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SCHEME</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/notification.css') }}">
+    <style>
+      table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+      th, td {
+          border: 1px solid #ddd;
+          padding: 8px;
+          text-align: left;
+      }
+      th {
+          background-color: #f2f2f2;
+      }
+      tr:nth-child(even) {
+          background-color: #f9f9f9;
+      }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="menu">
+      <div class="menu_bar">
+        <div class="logo"><img src="{{ url_for('static', filename='img/logo m.png') }}" alt="Logo"></div>
+     <button type="button" class="menu_icon_button"><img class="menu_icon"  src="{{ url_for ('static', filename='img/menu.png') }}" title="hamburger menu" alt="hamburger" 
+      ></button>   
+        <ul class="navgation">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('scheme') }}">Scheme</a></li>
+          <li><a href="{{ url_for('notification') }}">Notification</a></li>
+          <li><a href="{{ url_for('about') }}">About us</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact us</a></li>
+          {%if logged_in %}
+          <li><button type="button" class="btn1" id="dashboard" onclick="window.location.href='{{ url_for('dashboard') }}'"  >Dashboard</button></li>
+          {% else %}
+          <li><button type="button" class="btn1" id="login"onclick="window.location.href='{{ url_for('login') }}'">Login/Register</button></li>
+          {% endif %}
+        </ul>
+    
+        
+      </div>
+    </div>
+  </div>
+    <div class="main_notification">
+      <div class="table">     
+         <h1>Notification History</h1>
+         <span class="line"></span>
+         <table>
+          <thead>
+              <tr>
+                  <th>Message</th>
+                  <th>Timestamp</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for notification in notifications %}
+                  <tr>
+                      <td>{{ notification[0] }}</td>
+                      <td>{{ notification[1] }}</td>
+                  </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+  </div>
+  </div>
+    
+  <div class="footer">
+    <div class="link">
+     <ul>
+      <li><h3>Quick links</h3></li>
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('scheme') }}">Scheme</a></li>
+     <li><a href="{{ url_for('notification') }}">Notification</a></li>
+     </ul></div>    
+     <div class="compnay"><ul>
+         <li><h3>Company</h3></li>
+         <li><a href="{{ url_for('about') }}">About us</a></li>
+         <li><a href="{{ url_for('contact') }}">Contact us</a></li>
+     </ul></div>
+         
+         
+      <div class="Rate">
+
+        <h3>Rate Us </h3>
+        <span onclick="star(1)" class="star">★</span>
+        <span onclick="star(2)" class="star">★</span>
+        <span onclick="star(3)" class="star">★</span>
+        <span onclick="star(4)" class="star">★</span>
+        <span onclick="star(5)" class="star">★</span>
+        
+        
+       </div>
+   </div>
+         
+            <p class="copy"> © 2024 - 2024 mygovschmenotifier.com - All Rights Reserved.</p>
+    
+  
+          </div>
+         </div>
+         <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+  </html>

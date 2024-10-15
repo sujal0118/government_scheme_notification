@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SCHEME</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/about.css') }}">
+    
+</head>
+<body>
+  <div class="navbar">
+    <div class="menu">
+      <div class="menu_bar">
+        <div class="logo"><img src="{{ url_for('static', filename='img/logo m.png') }}" alt="Logo"></div>
+     <button type="button" class="menu_icon_button"><img class="menu_icon"  src="{{ url_for ('static', filename='img/menu.png') }}" title="hamburger menu" alt="hamburger" 
+      ></button>   
+        <ul class="navgation">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('scheme') }}">Scheme</a></li>
+          <li><a href="{{ url_for('notification') }}">Notification</a></li>
+          <li><a href="{{ url_for('about') }}">About us</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact us</a></li>
+          {%if logged_in %}
+          <li><button type="button" class="btn1" id="dashboard" onclick="window.location.href='{{ url_for('dashboard') }}'"  >Dashboard</button></li>
+          {% else %}
+          <li><button type="button" class="btn1" id="login"onclick="window.location.href='{{ url_for('login') }}'">Login/Register</button></li>
+          {% endif %}
+        </ul>
+    
+        
+      </div>
+    </div>
+  </div>
+    
+       
+    <div class="about-us">
+      <h1>About Us</h1>
+      <div class="border"></div>
+      <h2>Empowering Citizens with Information on Government Schemes</h2>
+      <p>Our mission is to ensure that every citizen is informed about the government schemes they are eligible for, and to provide them with the necessary tools and guidance to apply for these schemes effectively.</p>
+    
+      <h3>Project Overview</h3>
+      <p>Our project aims to notify users about new government schemes, check eligibility criteria, provide detailed information and required documents, and offer step-by-step guidance and video tutorials for applying.</p>
+    
+      <h3>Key Features</h3>
+      <ul>
+        <li>Real-time notifications of new schemes</li>
+        <li>Personalized eligibility checks</li>
+        <li>Comprehensive documentation and guidance</li>
+        <li>User-friendly interface</li>
+      </ul>
+    
+      <h3>Meet the Team</h3>
+    <div class="team-member">
+        <div class="sujal">
+        <img src="{{ url_for('static', filename='img/pic.jpg') }}" alt="Team Member 1">
+        <div class="info"><h3>Sujal Jawalkar</h3>
+        <p>Project Lead Frontend & Backend Developer. </p>
+         </div></div>
+         <div class="avi">
+          <img src="{{ url_for('static', filename='img/avi.jpg') }}" alt="Team Member 2">
+          <div class="info"><h3>Avdhut Jadhav</h3>
+          <p>Project Lead <br/> Research executive. </p>
+           </div></div>
+  
+
+    </div>
+    
+      <h3>Technologies Used</h3>
+      <p>Our project is built using the following technologies:</p>
+      <ul>
+        <li>Frontend: HTML, CSS, JavaScript</li>
+        <li>Backend: Node.js, Python</li>
+        <li>Database: MongoDB</li>
+        <li>Tools: Visual Studio Code</li>
+      </ul>
+    
+ 
+      <h3>Conclusion</h3>
+      <p>We are committed to helping users access and benefit from government schemes. Explore our features and let us know how we can improve your experience.</p>
+    </div>
+    
+ 
+
+
+    <div class="footer">
+      <div class="link">
+       <ul>
+        <li><h3>Quick links</h3></li>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('scheme') }}">Scheme</a></li>
+       <li><a href="{{ url_for('notification') }}">Notification</a></li>
+       </ul></div>    
+       <div class="compnay"><ul>
+           <li><h3>Company</h3></li>
+           <li><a href="{{ url_for('about') }}">About us</a></li>
+           <li><a href="{{ url_for('contact') }}">Contact us</a></li>
+       </ul></div>
+         
+         
+      <div class="Rate">
+
+        <h3>Rate Us </h3>
+        <span onclick="star(1)" class="star">★</span>
+        <span onclick="star(2)" class="star">★</span>
+        <span onclick="star(3)" class="star">★</span>
+        <span onclick="star(4)" class="star">★</span>
+        <span onclick="star(5)" class="star">★</span>
+        
+        
+       </div>
+   </div>
+         
+            <p class="copy"> © 2024 - 2024 mygovschmenotifier.com - All Rights Reserved.</p>
+    
+  
+          </div>
+         </div>
+         <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+  </html>

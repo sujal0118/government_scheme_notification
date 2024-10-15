@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SCHEME</title>
+    <style>
+      /* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for the login form */
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Label styling */
+.form-group label {
+    font-size: 1em;
+    color: #666;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Input field styling */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* Button styling */
+.btn {
+    width: 100%;
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+/* Error message styling */
+.text-danger {
+    color: #dc3545;
+    font-size: 0.875em;
+}
+
+/* Alert box for messages */
+.alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    .form-control {
+        font-size: 0.9em;
+    }
+
+    .btn {
+        font-size: 0.9em;
+    }
+}
+
+    </style>
+    
+</head>
+<body>
+  {%with messages=get_flashed_messages()%}
+  {%if messages%}
+<div class= alert>
+  <ul>
+    {% for messages in messages%}
+    <li>{{messages}}</li>
+    {%endfor%}
+  </ul>
+
+</div>
+{%endif%}
+{% endwith %}
+        <div class="container">
+          <h2>Admin Login Form</h2>
+          <form action='/admin_login'  method="POST">
+            {{ form.hidden_tag() }}
+        
+            <div class="form-group">
+     
+              {{ form.admin_id.label(for="admin_id") }}
+              {{ form.admin_id(id="admin_id", class="form-control") }}
+        
+              {% if form.admin_id.errors %}
+                <ul class="text-danger">
+                  {% for error in form.admin_id.errors %}
+                    <li>{{ error }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+        
+    
+        
+            <div class="form-group">
+              {{ form.password.label(for="password") }}
+              {{ form.password(id="password", class="form-control") }}
+        
+              {% if form.password.errors %}
+                <ul class="text-danger">
+                  {% for error in form.password.errors %}
+                    <li>{{ error }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+        
+            
+           
+            
+            {{ form.submit(class="btn") }}
+        
+            
+            
+          </form>
+        </div>
+        
+        
+        
+          
+          <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+    </html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        
+        h1, h2 {
+            color: #333;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Form Styling for Scheme */
+        form.scheme-form {
+            margin: 20px 0;
+            padding: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        form p {
+            margin-bottom: 15px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        form input[type="text"],
+        form input[type="number"],
+        form textarea,
+        form select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        form input[type="text"]:focus,
+        form input[type="number"]:focus,
+        form textarea:focus,
+        form select:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* CSS for Delete Button */
+        form.delete-form button {
+            background-color: #e74c3c; /* Red button */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        form.delete-form button:hover {
+            background-color: #c0392b; /* Darker red on hover */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            table, th, td {
+                display: block;
+                width: 100%;
+            }
+
+            td {
+                padding-left: 50%;
+                position: relative;
+            }
+
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+            }
+
+            form.scheme-form {
+                padding: 15px;
+            }
+        }
+
+      
+          
+            table {
+                width: 80%; /* Set the width of the table */
+                margin: auto; /* Center the table */
+                border-collapse: collapse; /* Merge borders */
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+            }
+    
+          
+            th {
+                background-color: #110a75; /* Header background color */
+                color: white; /* Header text color */
+                padding: 10px; /* Padding for header cells */
+                font-size: 1.2rem; /* Font size for header text */
+            }
+    
+            /* Styles for table data cells */
+            td {
+                background-color: white; /* Data cell background color */
+                padding: 10px; /* Padding for data cells */
+                border: 1px solid #110a75; /* Border color for data cells */
+                font-size: 1rem; /* Font size for data text */
+            }
+    
+            /* Styles for table rows on hover */
+            tr:hover {
+                background-color: #f1f1f1; /* Background color on hover */
+            }
+    
+            /* Styles for the heading */
+            h1 {
+                color: #110a75; /* Heading color */
+                margin-bottom: 20px; /* Margin below the heading */
+            }
+            .admin-logout-button {
+                display: inline-block;  /* Allows padding and margin to be applied */
+                padding: 10px 20px;    /* Adds space inside the button */
+                font-size: 16px;        /* Adjusts font size */
+                color: white;           /* Text color */
+                background-color: #ff3e3e; /* Background color (red for logout) */
+                border: none;           /* Removes border */
+                border-radius: 5px;    /* Rounds the corners */
+                text-decoration: none;   /* Removes underline */
+                transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+            }
+            
+            .admin-logout-button:hover {
+                background-color: #ff1e1e; /* Darker red on hover */
+                transform: scale(1.05);    /* Slightly enlarges the button */
+            }
+            
+            .admin-logout-button:active {
+                transform: scale(0.95);     /* Slightly shrinks the button on click */
+            }
+        
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+ 
+    <h2>Registered Users</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Caste</th>
+            <th>Location</th>
+            <th>Occupation</th>
+            <th>Income</th>
+            <th>Rating</th>
+
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td data-label="ID">{{ user[0] }}</td>
+            <td data-label="Name">{{ user[1] }}</td>
+            <td data-label="Email">{{ user[2] }}</td>
+            <td data-label="Phone">{{ user[3] }}</td>
+            <td data-label="Age">{{ user[5] }}</td>
+            <td data-label="Gender">{{ user[6] }}</td>
+            <td data-label="Caste">{{ user[7] }}</td>
+            <td data-label="Location">{{ user[8] }}</td>
+            <td data-label="Occupation">{{ user[9] }}</td>
+            <td data-label="Income">{{ user[10] }}</td>
+            <td data-label="Rating">{{ user[12] if user[12] is not none else 'Not Rated' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    
+    <h2>Add a New Scheme</h2>
+    <form class="scheme-form" method="POST" action="{{ url_for('admin') }}">
+        {{  scheme_form.hidden_tag() }}
+    
+        <p>{{ scheme_form.scheme_name.label }} {{ scheme_form.scheme_name(size=40) }}</p>
+        
+        <p>{{ scheme_form.description.label }} {{ scheme_form.description(cols=50, rows=5) }}</p>
+    
+        <p>{{ scheme_form.location.label }} {{ scheme_form.location(size=40) }}</p>
+    
+        <p>{{ scheme_form.min_age.label }} {{ scheme_form.min_age(size=5) }}</p>
+    
+        <p>{{ scheme_form.max_age.label }} {{ scheme_form.max_age(size=5) }}</p>
+    
+        <p>{{ scheme_form.gender.label }} {{ scheme_form.gender(size=10) }}</p>
+    
+        <p>{{ scheme_form.caste.label }} {{ scheme_form.caste(size=10) }}</p>
+    
+        <p>{{ scheme_form.min_income.label }} {{ scheme_form.min_income(size=10, step="0.01") }}</p>
+    
+        <p>{{ scheme_form.max_income.label }} {{ scheme_form.max_income(size=10, step="0.01") }}</p>
+    
+        <p><input type="submit" name="submit_scheme" value="Add Scheme"></p>
+    </form>
+    
+   
+
+
+   <h2>Existing Schemes</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Scheme Name</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Min Age</th>
+            <th>Max Age</th>
+            <th>Gender</th>
+            <th>Caste</th>
+            <th>Min Income</th>
+            <th>Max Income</th>
+        </tr>
+        {% for scheme in schemes %}
+        <tr>
+            <td data-label="ID">{{ scheme[0] }}</td>
+            <td data-label="Scheme Name">{{ scheme[1] }}</td>
+            <td data-label="Description">{{ scheme[2] }}</td>
+            <td data-label="Location">{{ scheme[3] }}</td>
+            <td data-label="Min Age">{{ scheme[4] }}</td>
+            <td data-label="Max Age">{{ scheme[5] }}</td>
+            <td data-label="Gender">{{ scheme[6] }}</td>
+            <td data-label="Caste">{{ scheme[7] }}</td>
+            <td data-label="Min Income">{{ scheme[8] }}</td>
+            <td data-label="Max Income">{{ scheme[9] }}</td>
+    
+            <td>
+                <!-- No styles on the form itself -->
+                <form class="delete-form" action="{{ url_for('delete_scheme', id=scheme[0]) }}" method="POST" style="all: unset;">
+                    <button type="submit" onclick="return confirm('Are you sure you want to delete this scheme?');">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h1>Feedback Received</h1>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Keywords</th>
+            <th>Date</th>
+
+        </tr>
+        {% for item in feedback %}
+        <tr>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            <td>{{ item[3] }}</td>
+            <td>{{ item[5] }}</td>
+            <td>{{ item[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/admin_logout" class="admin-logout-button">Logout</a>
+    
+</body>
+</html>

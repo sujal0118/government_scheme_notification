@@ -1,0 +1,42 @@
+*{  margin: 0%;
+    padding: 0;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+   color: black; 
+    text-decoration: none;
+overflow-x: hidden;
+font-family: 'Times New Roman', Times, serif;
+    
+}
+.scheme h1{
+    width: 100%;
+    text-align: left;
+    font-weight: bolder;
+    color: #110a75;
+    padding: 10px;
+    margin-left: 20px;
+    
+
+}
+.scheme h2{
+    color: #1a119b;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 30%;
+    margin:0 7%;
+
+}
+.card h3{
+    padding: 10px;
+    color: #1d11ccf3;
+}
+.card h4{
+    padding: 10px;
+    
+}
+.card video{
+    padding: 15px;
+}

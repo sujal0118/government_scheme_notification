@@ -1,0 +1,239 @@
+*{  margin: 0%;
+    padding: 0;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+    text-decoration: none;
+overflow-x: hidden;
+font-family: 'Times New Roman', Times, serif;
+    
+}
+ body{
+    text-align: left;
+    
+ }
+
+ .about-us h1{
+   font-weight: bolder;
+   color: #110a75;
+   padding: 25px;
+   line-height: 0%;
+   font-size: 2.5rem;
+   margin: 8px;
+  
+ }
+ .border{
+    border: 2px solid #110a75;
+    width: 14%;
+    margin-left: 30px;
+   margin-bottom: 20px; 
+   border-radius: 20px;
+   
+    
+    
+ }
+
+ .about-us h2{
+    font-weight: bold;
+    color: #1a119b;
+    padding: 20px;
+    font-size: 2rem;
+
+ }
+ .about-us h3{
+    font-weight: bold;
+    color: #1d11ccf3;
+    font-size: 2.2rem;
+    padding: 20px;
+ }
+ .about-us p{
+    width: 50%;
+    margin-left: 5%;
+    text-align: left;
+    font-size: 1.5rem;
+    padding: 20px;
+    font-weight: bold;
+  
+ }
+ .about-us li{
+    
+    width: 50%;
+    margin-left: 5%;
+    text-align: left;
+    font-size: 1.5rem;
+    padding: 10px;
+    font-weight: bold;
+    
+  
+ }
+ .team-member {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+padding: 10px;
+    overflow: hidden;
+    
+
+ }
+
+ .team-member img {
+    width: 25%;
+    height: 30%;
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: 25px;
+    border: 2px solid #110a75;
+    margin-top: 10px;
+    
+
+ }
+ .team-member h3{
+    padding-bottom: 5px;
+ }
+ .sujal{
+    width: 50%;
+    height: 70%;
+    text-align: center;
+  
+    border-radius: 90px;
+    line-height: 40px;
+    margin: 20px;
+   
+
+ }
+ .sujal p{
+    font-size: 1.5rem;
+    text-align: center;
+    margin-left: 25%;
+    
+ }
+ .avi p{
+    font-size: 1.5rem;
+    text-align: center;
+    margin-left: 25%;
+    
+ }
+ .avi{
+    width: 50%;
+    height: 10%;
+    text-align: center;
+    aspect-ratio: 3/2;
+    border-radius: 50px;
+    line-height: 40px;
+    margin: 20px;
+
+ }
+
+ 
+
+@media (max-width: 600px) { 
+
+   .about-us h1{
+  text-align: center;
+     
+    } 
+ .border{
+ 
+    width: 30%;
+    margin-left: 35%;
+   
+   
+    
+    
+ }
+
+ .about-us h2{
+    font-weight: bold;
+    color: #1a119b;
+    padding: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+
+ }
+ .about-us h3{
+    
+    font-size: 1.7rem;
+    padding: 10px;
+    text-align: center;
+    text-wrap: wrap;
+
+ }
+ .about-us p{
+    width: 100%;
+   text-wrap: wrap;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 50px;
+   
+  
+ }
+ .about-us li{
+    
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    padding:5px 40px;
+    text-wrap: wrap;
+
+    
+  
+ }
+ .team-member {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+padding: 10px;
+    overflow: hidden;
+
+    
+
+ }
+
+ .team-member img {
+    width: 25%;
+    height: 30%;
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: 25px;
+    border: 2px solid #110a75;
+    margin-top: 10px;
+    
+
+ }
+ .team-member h3{
+    padding-bottom: 5px;
+ }
+ .sujal{
+    width: 100%;
+    height: 70%;
+    text-align: center;
+  
+    border-radius: 90px;
+    line-height: 40px;
+    margin: 20px;
+   
+
+ }
+ .sujal p{
+    font-size: 1.2rem;
+    text-align: center;
+    margin-left: 2%;
+    
+ }
+ .avi p{
+    font-size: 1.2rem;
+    text-align: center;
+    margin-left: 2%;
+    
+ }
+ .avi{
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    aspect-ratio: 3/2;
+    border-radius: 50px;
+    line-height: 40px;
+    margin: 20px;
+
+ }}

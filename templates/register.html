@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+     
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        select,
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .btn {
+          display: block;
+          width: 100%;
+          padding: 0.8rem;
+          background-color: #007bff;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: background-color 0.3s ease, box-shadow 0.3s ease;
+          text-align: center;
+          font-weight: bold;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      .btn:hover {
+          background-color: #0056b3;
+          box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .btn:active {
+          background-color: #004494;
+          box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
+          transform: translateY(2px);
+      }
+      
+      .btn-secondary {
+          background-color: #6c757d;
+      }
+      
+      .btn-secondary:hover {
+          background-color: #5a6268;
+      }
+      
+      .btn-secondary:active {
+          background-color: #4e555b;
+      }
+      
+
+        .text-danger {
+            color: #dc3545;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register Form</h2>
+
+        
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+      <div class="flash-messages">
+          {% for message in messages %}
+              <div class="alert alert-info">{{ message }}</div>
+          {% endfor %}
+      </div>
+  {% endif %}
+{% endwith %}
+
+        <form action='/register' method="POST">
+            {{ form.hidden_tag() }}
+            
+            <div class="form-group">
+                {{ form.name.label(for="name") }}
+                {{ form.name(id="name", class="form-control") }}
+                {% if form.name.errors %}
+                    <ul class="text-danger">
+                        {% for error in form.name.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.email.label(for="email") }}
+                {{ form.email(id="email", class="form-control") }}
+                {% if form.email.errors %}
+                    <ul class="text-danger">
+                        {% for error in form.email.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.phoneno.label(for="phoneno") }}
+                {{ form.phoneno(id="phoneno", class="form-control") }}
+                {% if form.phoneno.errors %}
+                    <ul class="text-danger">
+                        {% for error in form.phoneno.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.password.label(for="password") }}
+                {{ form.password(id="password", class="form-control") }}
+                {% if form.password.errors %}
+                    <ul class="text-danger">
+                        {% for error in form.password.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.age.label(for="age") }}
+                {{ form.age(id="age", class="form-control") }}
+                {% if form.age.errors %}
+                    <ul class="text-danger">
+                        {% for error in form.age.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+              {{ form.gender.label(for="gender") }}
+              <div>
+                  {{ form.gender(class="form-check-input") }}
+              </div>
+              {% if form.gender.errors %}
+                  <ul class="text-danger">
+                      {% for error in form.gender.errors %}
+                          <li>{{ error }}</li>
+                      {% endfor %}
+                  </ul>
+              {% endif %}
+          </div>
+          
+
+            <div class="form-group">
+                {{ form.caste.label(for="caste") }}
+                {{ form.caste(id="caste", class="form-control") }}
+                {% if form.caste.errors %}
+                    <ul class="text-danger">
+                        {% for error in form.caste.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.location.label(for="location") }}
+                {{ form.location(id="location", class="form-control") }}
+                {% if form.location.errors %}
+                    <ul class="text-danger">
+                        {% for error in form.location.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.occupation.label(for="occupation") }}
+                {{ form.occupation(id="occupation", class="form-control") }}
+                {% if form.occupation.errors %}
+                    <ul class="text-danger">
+                        {% for error in form.occupation.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.income.label(for="income") }}
+                {{ form.income(id="income", class="form-control") }}
+                {% if form.income.errors %}
+                    <ul class="text-danger">
+                        {% for error in form.income.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            {{ form.submit(class="btn") }}
+            <br>
+
+            <a href="{{ url_for('login') }}" class="btn">Login</a>
+        </form>
+    </div>
+</body>
+</html>

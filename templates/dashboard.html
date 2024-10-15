@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SCHEME</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .info {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #218838;
+        }
+
+        @media (max-width: 768px) {
+            .info {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            ul li {
+                font-size: 1em;
+            }
+
+            a {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .info {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            ul li {
+                font-size: 0.9em;
+            }
+
+            a {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class=info>
+    <h2>Dashboard</h2>
+
+{%if user%}
+<p>User Information</p>
+<ul>
+    <li>Name:{{user[1]}}</li>
+    <li>Email:{{user[2]}}</li>
+    <li>Phone no:{{user[3]}}</li>
+    <li>Age:{{user[5]}}</li>
+    <li>Gender:{{user[6]}}</li>
+    <li>Caste:{{user[7]}}</li>
+    <li>State:{{user[8]}}</li>
+    <li>Occupation:{{user[9]}}</li>
+    <li>Income:{{user[10]}}</li>
+
+
+</ul>
+
+ <a href="/logout">Logout</a>
+ {%endif%}
+</div>
+        
+        
+        
+          
+          <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+    </html>
+

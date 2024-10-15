@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SCHEME</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/know_more.css') }}">
+</head>
+<body>
+  <div class="navbar">
+    <div class="menu">
+      <div class="menu_bar">
+        <div class="logo"><img src="{{ url_for('static', filename='img/logo m.png') }}" alt="Logo"></div>
+     <button type="button" class="menu_icon_button"><img class="menu_icon"  src="{{ url_for ('static', filename='img/menu.png') }}" title="hamburger menu" alt="hamburger" 
+      ></button>   
+        <ul class="navgation">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('scheme') }}">Scheme</a></li>
+          <li><a href="{{ url_for('notification') }}">Notification</a></li>
+          <li><a href="{{ url_for('about') }}">About us</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact us</a></li>
+          {%if logged_in %}
+          <li><button type="button" class="btn1" id="dashboard" onclick="window.location.href='{{ url_for('dashboard') }}'"  >Dashboard</button></li>
+          {% else %}
+          <li><button type="button" class="btn1" id="login"onclick="window.location.href='{{ url_for('login') }}'">Login/Register</button></li>
+          {% endif %}
+        </ul>
+    
+        
+      </div>
+    </div>
+  </div>
+
+    <div class="scheme">
+        <h1>Scheme name:</h1>
+     
+<div class="card">
+
+<h2> Scheme Overview:</h2>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, dignissimos, recusandae cum distinctio exercitationem neque quisquam magnam possimus numquam sunt a adipisci dicta. Unde odio recusandae assumenda rerum fugit voluptatibus.</p>
+
+<h3>Features:</h3>
+<ol>
+    <li><h4>Feature 1</h4></li>
+    <li><h4>Feature 2</h4></li>
+    <li><h4>Feature 3</h4></li>
+    </ol>
+
+<h3>Documents Required:</h3>
+<ol>
+    <li><h4>Document 1</h4></li>
+    <li><h4>Document 2</h4></li>
+    <li><h4>Document 3</h4></li>
+    
+</ol>
+<h3>Eligibility criteria:</h3>
+<ol>
+    <li><h4>Eligibility 1</h4></li>
+        <li><h4>Eligibility 2</h4></li>
+        <li><h4>Eligibility 3</h4></li>
+</ol>
+<h3>How to Apply:</h3>
+<ol>
+    <li><h4>Step 1</h4></li>
+    <li><h4>Step 2</h4></li>
+    <li><h4>Step 3</h4></li>
+   
+</ol>
+<video width="280" height="140" controls>
+    <source src="movie.mp4" type="video/mp4">
+    
+    
+  </video>
+
+
+</div>
+    </div>
+    <div class="footer">
+      <div class="link">
+       <ul>
+        <li><h3>Quick links</h3></li>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('scheme') }}">Scheme</a></li>
+       <li><a href="{{ url_for('notification') }}">Notification</a></li>
+       </ul></div>    
+       <div class="compnay"><ul>
+           <li><h3>Company</h3></li>
+           <li><a href="{{ url_for('about') }}">About us</a></li>
+           <li><a href="{{ url_for('contact') }}">Contact us</a></li>
+       </ul></div>
+            
+            
+         <div class="Rate">
+
+          <h3>Rate Us </h3>
+          <span onclick="star(1)" class="star">★</span>
+          <span onclick="star(2)" class="star">★</span>
+          <span onclick="star(3)" class="star">★</span>
+          <span onclick="star(4)" class="star">★</span>
+          <span onclick="star(5)" class="star">★</span>
+          
+          
+         </div>
+      </div>
+            
+               <p class="copy"> © 2024 - 2024 mygovschmenotifier.com - All Rights Reserved.</p>
+       
+     
+             </div>
+            </div> <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+     </body>
+     </html>

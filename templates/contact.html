@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SCHEME</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/contact.css') }}">
+</head>
+<body>
+  <div class="navbar">
+    <div class="menu">
+      <div class="menu_bar">
+        <div class="logo"><img src="{{ url_for('static', filename='img/logo m.png') }}" alt="Logo"></div>
+     <button type="button" class="menu_icon_button"><img class="menu_icon"  src="{{ url_for ('static', filename='img/menu.png') }}" title="hamburger menu" alt="hamburger" 
+      ></button>   
+        <ul class="navgation">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('scheme') }}">Scheme</a></li>
+          <li><a href="{{ url_for('notification') }}">Notification</a></li>
+          <li><a href="{{ url_for('about') }}">About us</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact us</a></li>
+          {%if logged_in %}
+          <li><button type="button" class="btn1" id="dashboard" onclick="window.location.href='{{ url_for('dashboard') }}'"  >Dashboard</button></li>
+          {% else %}
+          <li><button type="button" class="btn1" id="login"onclick="window.location.href='{{ url_for('login') }}'">Login/Register</button></li>
+          {% endif %}
+        </ul>
+    
+        
+      </div>
+    </div>
+  </div>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+      <div class="flash-messages">
+          {% for message in messages %}
+              <div class="alert alert-info">{{ message }}</div>
+          {% endfor %}
+      </div>
+  {% endif %}
+{% endwith %}
+
+  <div class="contact">
+    <h1>Contact Us</h1>
+    <div class="line"></div>
+    <p>If you have any questions, feedback, or suggestions, we'd love to hear from you. <br/>Please fill out the form below and we'll get back to you as soon as possible.</p>
+    <div class="all">
+      
+
+      
+      <form method="POST" action="{{ url_for('contact') }}">
+          {{ form.hidden_tag() }}
+          <div>
+              {{ form.name.label }}<br>
+              {{ form.name(size=32) }}<br>
+              {% for error in form.name.errors %}
+                  <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+          </div>
+          <div>
+              {{ form.email.label }}<br>
+              {{ form.email(size=32) }}<br>
+              {% for error in form.email.errors %}
+                  <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+          </div>
+          <div>
+              {{ form.message.label }}<br>
+              {{ form.message(rows=5, cols=32) }}<br>
+              {% for error in form.message.errors %}
+                  <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+          </div>
+          <div>
+              {{ form.submit(class='submit') }}
+          </div>
+      </form>
+  </div>
+  </div>
+  <div class="footer">
+    <div class="link">
+     <ul>
+      <li><h3>Quick links</h3></li>
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('scheme') }}">Scheme</a></li>
+     <li><a href="{{ url_for('notification') }}">Notification</a></li>
+     </ul></div>    
+     <div class="compnay"><ul>
+         <li><h3>Company</h3></li>
+         <li><a href="{{ url_for('about') }}">About us</a></li>
+         <li><a href="{{ url_for('contact') }}">Contact us</a></li>
+     </ul></div>
+       
+       
+       <div class="Rate">
+
+        <h3>Rate Us </h3>
+        <span onclick="star(1)" class="star">★</span>
+        <span onclick="star(2)" class="star">★</span>
+        <span onclick="star(3)" class="star">★</span>
+        <span onclick="star(4)" class="star">★</span>
+        <span onclick="star(5)" class="star">★</span>
+        
+        
+       </div>
+ </div>
+       
+          <p class="copy"> © 2024 - 2024 mygovschmenotifier.com - All Rights Reserved.</p>
+  
+
+        </div>
+      
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
